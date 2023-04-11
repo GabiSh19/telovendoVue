@@ -8,6 +8,7 @@ export default createStore({
 
     mutations: {
         agregar(state, payload){
+
             state.carrito.push(payload) 
         },
 
@@ -15,6 +16,7 @@ export default createStore({
             state.carrito = state.carrito.filter((element)=>{
                 return element.id != payload.id;
             })
+
         }
 
 
