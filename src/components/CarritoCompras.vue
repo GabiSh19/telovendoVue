@@ -18,14 +18,14 @@
                 <tbody>
                     <tr v-for="carro in carrito" :key="carro.cantidad">
                         <td>{{carro.nombre}}</td>
-                        <td>{{carro.valor}}</td>
+                        <td>{{carro.cantidad}}</td>
                         <td>{{carro.precio}}</td>
                         <td>botones</td>
                     </tr>
                 </tbody>
                 </table>
                 <div class="summary">
-                    <p>Subtotal:</p>
+                    <p>Subtotal: {{ valores }}</p>
                     <p>Envío:</p>
                     <p>Total:</p>
                 </div>
@@ -56,6 +56,7 @@ data(){
 
 computed: {
     ...mapState(['carrito']),
+    ...mapState(['valores']),
     
   }
     
