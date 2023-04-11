@@ -26,11 +26,7 @@ export default createStore({
             state.carrito = state.carrito.filter((element)=>{
                 return element.id != payload.id;
             })
-
-
-            // // let buscaEnCarro = state.carrito.map( e=>e.id)
-            // console.log(buscaEnCarro)
-
+            state.valores = state.valores - (payload.precio * payload.cantidad)
         }
 
 
