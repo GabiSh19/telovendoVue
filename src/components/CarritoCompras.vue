@@ -5,7 +5,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <button class="actualizar" @click="escribirProducto()"></button>
         <table class="table table-bordered">
                 <thead class=" table-success">
                 <tr>
@@ -20,7 +19,7 @@
                         <td>{{carro.nombre}}</td>
                         <td>{{carro.cantidad}}</td>
                         <td>{{carro.precio}}</td>
-                        <td>botones</td>
+                        <td><ion-icon name="trash-outline"  @click="eliminar(carro)"></ion-icon></td>
                     </tr>
                 </tbody>
                 </table>
@@ -38,7 +37,7 @@
 
 <script >
 
-import {mapState} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 
 export default {
 data(){
@@ -54,9 +53,13 @@ data(){
 
 computed: {
     ...mapState(['carrito']),
-    ...mapState(['valores']),
-    
-  }
+
+  },
+
+methods: {
+    ...mapMutations(['eliminar'])
+}  
+
     
 
 }

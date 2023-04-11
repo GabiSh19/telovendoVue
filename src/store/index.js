@@ -9,10 +9,15 @@ export default createStore({
 
     mutations: {
         agregar(state, payload){
-            console.log(payload.id)
-            const yaExiste = state.carrito.some((element) => { 
-                return payload.id === element.id
+
+            state.carrito.push(payload) 
+        },
+
+        eliminar(state, payload){
+            state.carrito = state.carrito.filter((element)=>{
+                return element.id != payload.id;
             })
+
             if(yaExiste){
                 payload.cantidad = payload.cantidad + 1 
                 state.valores = state.valores+(payload.precio) 
@@ -23,7 +28,10 @@ export default createStore({
 
             // // let buscaEnCarro = state.carrito.map( e=>e.id)
             // console.log(buscaEnCarro)
+
         }
+
+
     },
     
     action: {
