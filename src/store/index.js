@@ -9,7 +9,15 @@ export default createStore({
     mutations: {
         agregar(state, payload){
             state.carrito.push(payload) 
+        },
+
+        eliminar(state, payload){
+            state.carrito = state.carrito.filter((element)=>{
+                return element.id != payload.id;
+            })
         }
+
+
     },
     
     action: {
