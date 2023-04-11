@@ -24,9 +24,7 @@
                 </tbody>
                 </table>
                 <div class="summary">
-                    <p>Subtotal: {{ valores }}</p>
-                    <p>Envío:</p>
-                    <p>Total:</p>
+                    <p>Total: {{ valores }}</p>
                 </div>
                 <div class="d-grid gap-2 col-10 mx-auto">
                     <button class="btn btn-success" type="button">Finalizar mi compra</button>
