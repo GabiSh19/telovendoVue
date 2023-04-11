@@ -24,7 +24,7 @@
                 </tbody>
                 </table>
                 <div class="summary">
-                    <p>Total: {{ valores }}</p>
+                    <p>Total: {{valores}}</p>
                 </div>
                 <div class="d-grid gap-2 col-10 mx-auto">
                     <button class="btn btn-success" type="button">Finalizar mi compra</button>
@@ -53,7 +53,7 @@ data(){
 
 computed: {
     ...mapState(['carrito']),
-
+    ...mapState(['valores'])    
   },
 
 methods: {
