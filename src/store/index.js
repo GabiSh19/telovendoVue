@@ -9,8 +9,17 @@ export default createStore({
 
     mutations: {
         agregar(state, payload){
-
-            state.carrito.push(payload) 
+            const yaExiste = state.carrito.some((element) => { 
+                return payload.id === element.id
+            })
+            
+            if(yaExiste){
+                payload.cantidad = payload.cantidad + 1 
+                state.valores = state.valores+(payload.precio) 
+            }else{
+                state.carrito.push(payload) 
+                state.valores = state.valores+(payload.precio) 
+            } 
         },
 
         eliminar(state, payload){
@@ -18,13 +27,6 @@ export default createStore({
                 return element.id != payload.id;
             })
 
-            if(yaExiste){
-                payload.cantidad = payload.cantidad + 1 
-                state.valores = state.valores+(payload.precio) 
-            }else{
-                state.carrito.push(payload) 
-                state.valores = state.valores+(payload.precio) 
-            }
 
             // // let buscaEnCarro = state.carrito.map( e=>e.id)
             // console.log(buscaEnCarro)
