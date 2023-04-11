@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
 
     state: {
-        carrito: []
+        carrito: [],
+        valores: 0
     },
 
     mutations: {
@@ -14,8 +15,10 @@ export default createStore({
             })
             if(yaExiste){
                 payload.cantidad = payload.cantidad + 1 
+                state.valores = state.valores+(payload.precio) 
             }else{
                 state.carrito.push(payload) 
+                state.valores = state.valores+(payload.precio) 
             }
 
             // // let buscaEnCarro = state.carrito.map( e=>e.id)
