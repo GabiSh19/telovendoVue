@@ -27,6 +27,12 @@ export default createStore({
                 return element.id != payload.id;
             })
             state.valores = state.valores - (payload.precio * payload.cantidad)
+            payload.cantidad = 1
+        },
+
+        limpiarCarro(state){
+            state.carrito = [];
+            state.valores = 0
         }
 
 
