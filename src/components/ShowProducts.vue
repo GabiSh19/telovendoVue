@@ -6,8 +6,8 @@
       <button class="button btn-success" v-on:click="searchData">Buscar</button>
     </div>
     <div class="row">
-      <div class="col-lg-4 col-md-12 mb-4" v-for="producto in productos" :key="producto.id">
-        <div class="card" >
+      <div class="col-lg-4 col-md-12 mb-4" v-for="producto in disponibles" :key="producto.id">
+        <div class="card">
           <button class = "btn btn-success"  @click="agregar(producto)">Agregar</button>
           <img :src="producto.imagen" class="w-100" />
           <div class="card-body">
@@ -32,7 +32,9 @@ export default {
         productos: [],
         productosTodos: [],
         arrayCarrito:  [],
+        disponibles: [],
         buscarP: '',
+        // checkStock: true,
         cargando: true,
     };
   },
@@ -42,7 +44,9 @@ export default {
       let response = await ProductService.ProductAll();
       this.productos = response;
       this.productosTodos = response;
+      this.disponibles = this.productos.filter((prod) => prod.stock > 0);
       this.cargando = false;
+      
   
     } catch (error) {
       this.errorMessage = error;
@@ -63,7 +67,16 @@ export default {
     },
     reseteoP(){
       this.productos = this.productosTodos
-    }
+    },
+
+    // checkStock(stock) {
+    //   if(stock > 0){
+    //     return true;
+    //   }
+    //   else{
+    //     return false;
+    //   }
+    // }
     // searchData() {
     //   this.productos.filter(
     //     prod =>{

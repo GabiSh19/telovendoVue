@@ -30,7 +30,7 @@ export class ProductService {
             "descripcion": "Silla tela aterciopelada gris grafito con base de madera. Dimensiones 100 x 60 x 70cm ",
             "precio": 100.000,
             "cantidad": 1,
-            "stock": 10,
+            "stock": 0,
             "categoria": "",
             "etiqueta":""
         },
