@@ -1,6 +1,10 @@
 <template>
   <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong>Productos</strong></h4>
+    <div class="barraB">
+      <input type="text" v-model="buscarP" placeholder="Buscar..." v-on:keyup.enter="searchData">
+      <button class="button btn-success" v-on:click="searchData">Buscar</button>
+    </div>
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4" v-for="producto in productos" :key="producto.id">
         <div class="card" >
@@ -26,17 +30,25 @@ export default {
   data: function(){
     return{
         productos: [],
+        productosTodos: [],
         arrayCarrito:  [],
+        buscarP: '',
+        cargando: true,
     };
   },
-  created: async function() {
+  created(){
+    const obtenerLista = async() => {
     try {
       let response = await ProductService.ProductAll();
       this.productos = response;
+      this.productosTodos = response;
+      this.cargando = false;
   
     } catch (error) {
       this.errorMessage = error;
     }
+  };
+  obtenerLista()
   },
   computed: {
     ...mapState(['carrito'])
@@ -44,7 +56,19 @@ export default {
   },
 
   methods:{
-    ...mapMutations(['agregar'])
+    ...mapMutations(['agregar']),
+    searchData(){
+      this.reseteoP();
+      this.productos = this.productos.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
+    },
+    reseteoP(){
+      this.productos = this.productosTodos
+    }
+    // searchData() {
+    //   this.productos.filter(
+    //     prod =>{
+    //       return 
+    //     })
     
   //   agregarProducto(producto){
   //     console.log(producto)
