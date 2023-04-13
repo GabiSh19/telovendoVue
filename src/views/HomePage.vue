@@ -1,5 +1,4 @@
 <template>
-  <!-- poner el router-view? -->
   <NavBar></NavBar>
 
   <ShowProducts/>

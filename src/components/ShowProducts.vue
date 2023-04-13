@@ -1,10 +1,11 @@
 <template>
-  
   <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong>Productos</strong></h4>
-    <div class="barraB">
-      <input type="text" v-model="buscarP" placeholder="Buscar..." v-on:keyup.enter="searchData">
-      <button class="button btn-success" v-on:click="searchData">Buscar</button>
+    <div class="barraB row justify-content-lg-start" >
+      <div class="col-5" id="buscador">
+      <input class="form-control w-100 me-3" type="text" v-model="buscarP" placeholder="Buscar..." v-on:keyup.enter="searchData">
+      <button class="btn btn-success" v-on:click="searchData">Buscar</button>
+    </div>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4" v-for="producto in disponibles" :key="producto.id">
@@ -95,36 +96,15 @@ export default {
       this.disponibles = this.productosTodos
 
     },
-
-    // checkStock(stock) {
-    //   if(stock > 0){
-    //     return true;
-    //   }
-    //   else{
-    //     return false;
-    //   }
-    // }
-    // searchData() {
-    //   this.productos.filter(
-    //     prod =>{
-    //       return 
-    //     })
-    
-  //   agregarProducto(producto){
-  //     console.log(producto)
-      
-     
-  //     // const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
-  //     // let fila = productosParaCarrito.map(    => e.id).indexOf(producto);
-  //     // let fila = this.productos.map(e => e.id).indexOf(producto);
-  //     // this.arrayCarrito.push(this.productos[fila]);
-  //     // console.log(this.arrayCarrito);
-
-  //   }
-  //   }
    }}
 
 </script>
 
 <style scoped>
+#buscador{
+display: flex; 
+align-items: center;
+margin-bottom: 2em;
+
+}
 </style>
