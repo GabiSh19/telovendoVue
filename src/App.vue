@@ -1,11 +1,23 @@
+
+
 <template>
-  <router-view />
+  <div v-if=($store.state.isLoggin)>
+    <LoginPage/>
+  </div>
+  <div v-if= ($store.state.loggin)>
+    <router-view />
+
+  </div>
+
 </template>
 
 <script>
+import LoginPage from "@/views/LoginPage.vue"
+
 export default {
   name: 'App',
   components: {
+    LoginPage
   }
 }
 </script>
