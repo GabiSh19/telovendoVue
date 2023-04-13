@@ -2,10 +2,13 @@
   
   <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong>Productos</strong></h4>
-    <div class="barraB">
-      <input type="text" v-model="buscarP" placeholder="Buscar..." v-on:keyup.enter="searchData">
-      <button class="button btn-success" v-on:click="searchData">Buscar</button>
+    <div class="barraB row justify-content-lg-start" >
+      <div class="col-5" id="buscador">
+      <input class="form-control w-100 me-3" type="text" v-model="buscarP" placeholder="Buscar..." v-on:keyup.enter="searchData">
+      <button class="btn btn-success" v-on:click="searchData">Buscar</button>
     </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4" v-for="producto in disponibles" :key="producto.id">
         <div class="card">
@@ -88,10 +91,10 @@ export default {
     ...mapMutations(['agregar']),
     searchData(){
       this.reseteoP();
-      this.productos = this.productos.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
+      this.disponibles = this.disponibles.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
     },
     reseteoP(){
-      this.productos = this.productosTodos
+      this.disponibles = this.productosTodos
     },
 
     // checkStock(stock) {
@@ -125,4 +128,11 @@ export default {
 </script>
 
 <style scoped>
+#buscador{
+display: flex; 
+align-items: center;
+margin-bottom: 2em;
+
+}
+
 </style>
