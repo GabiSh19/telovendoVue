@@ -4,7 +4,9 @@ export default createStore({
 
     state: {
         carrito: [],
-        valores: 0
+        valores: 0,
+        loggin: false
+
     },
 
     mutations: {
@@ -21,6 +23,20 @@ export default createStore({
                 state.valores = state.valores+(payload.precio) 
             } 
         },
+        restar(state, payload){
+
+            if(payload.cantidad == 1){
+                state.carrito = state.carrito.filter((element)=>{
+                return element.id != payload.id;
+                })
+                state.valores = state.valores - (payload.precio * payload.cantidad)
+                payload.cantidad = 1
+            }
+            else if(payload.cantidad > 1){
+                payload.cantidad = payload.cantidad - 1
+                state.valores = state.valores - (payload.precio)
+            }
+        },
 
         eliminar(state, payload){
             state.carrito = state.carrito.filter((element)=>{
@@ -33,16 +49,14 @@ export default createStore({
         limpiarCarro(state){
             state.carrito = [];
             state.valores = 0
-        }
-
-
+        },
     },
     
     action: {
 
-    },    
+    }, 
+
     modules: {
 
     }
-
 })
