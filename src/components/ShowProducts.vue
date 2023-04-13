@@ -9,38 +9,32 @@
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4" v-for="producto in disponibles" :key="producto.id">
         <div class="card">
-          <!-- lanzador de modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-  Tooltip on top
-</button>
-  <!-- lanzador de modal -->
           <button class = "btn btn-success"  @click="agregar(producto)">Agregar</button>
-          <img :src="producto.imagen" class="w-100" />
+          <img :src="producto.imagen" class="w-100" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id"/>
           <div class="card-body">
               <h5 class="card-title mb-3">{{producto.nombre}}</h5>
               <p>{{producto.descripcion}}</p>
             <h6 class="mb-3">${{producto.precio}}</h6>
           </div>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Ventana modal -->
+          <div class="modal fade" :id="'myModal' + producto.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">{{producto.nombre}}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  ...
+                  {{producto.descripcion}}
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
+          <!-- Ventana modal -->
         </div>
       </div>
     </div>
@@ -49,10 +43,13 @@
 
 
 <script >
+// instale popper con el comandoo $npm i @popperjs/core
 import {ProductService} from "../services/ProductService"
 import {mapState, mapMutations} from 'vuex'
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+// import { createPopper } from '@popperjs/core';
+
+
 
 export default {
   data: function(){
