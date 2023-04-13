@@ -4,7 +4,9 @@ export default createStore({
 
     state: {
         carrito: [],
-        valores: 0
+        valores: 0,
+        loggin: false
+
     },
 
     mutations: {
@@ -33,16 +35,14 @@ export default createStore({
         limpiarCarro(state){
             state.carrito = [];
             state.valores = 0
-        }
-
-
+        },
     },
     
     action: {
 
-    },    
+    }, 
+
     modules: {
 
     }
-
 })
