@@ -51,7 +51,7 @@ export class ProductService {
             "nombre": "Lámpara Albert",
             "descripcion": "Lámpara de pie con base metálida y pantalla semi rígida. Dimensiones 150 x 40 x 60cm.",
             "precio": 80.000,
-            "cantidad": 0,
+            "cantidad": 1,
             "stock": 10,
             "categoria": "",
             "etiqueta":""
@@ -62,7 +62,7 @@ export class ProductService {
             "nombre": "Silla Coral",
             "descripcion": "Silla tela aterciopelada verde. Soporte madera color negro mate. Dimensiones 90 x 60 x 70cm.",
             "precio": 120.000,
-            "cantidad": 0,
+            "cantidad": 1,
             "stock": 10,
             "categoria": "",
             "etiqueta":""
@@ -73,7 +73,7 @@ export class ProductService {
             "nombre": "Sofá Sofía",
             "descripcion": "Sofá de 3 cuerpos blanco invierno, Soporte madera color natiral. Dimensiones 170 x 70 x 81 cm.",
             "precio": 500.000,
-            "cantidad": 0,
+            "cantidad": 1,
             "stock": 10,
             "categoria": "",
             "etiqueta":""

@@ -12,6 +12,7 @@
                 <input v-model="user.password"  class="form-control mt-3" placeholder="Password" type="password">
                 <input class="btn btn-success mt-3" type="submit" value="Ingresar">
             </form>
+            <div v-if="!loggin">{{mensajeError}}</div>
           </div>
         </div>
       </div>
@@ -30,7 +31,8 @@ export default {
         user: {
             email: '',
             password: ''
-        }
+        },
+        mensajeError: ""
     };
   },
   created: async function() {
@@ -48,6 +50,7 @@ export default {
         if (encontro !== -1) {
             if (this.user.password === this.usuarios[encontro].password) {
                 loggin = true;
+                this.mensajeError = "Ingreso"
             }else{
                 loggin = false;
             }
@@ -58,6 +61,7 @@ export default {
             router.push('./HomePage')
         }else{
             console.log('Usuario NO Logueado')
+            this.mensajeError = "Usuario o contraseña inválido" 
         }
     }
   }
