@@ -88,10 +88,12 @@ export default {
     ...mapMutations(['agregar']),
     searchData(){
       this.reseteoP();
-      this.productos = this.productos.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
+      this.disponibles = this.disponibles.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
     },
     reseteoP(){
-      this.productos = this.productosTodos
+
+      this.disponibles = this.productosTodos
+
     },
 
     // checkStock(stock) {

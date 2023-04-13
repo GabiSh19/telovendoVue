@@ -17,7 +17,10 @@
                 <tbody>
                     <tr v-for="carro in carrito" :key="carro.cantidad">
                         <td>{{carro.nombre}}</td>
-                        <td>{{carro.cantidad}}</td>
+                        <td class="cantidad">
+                            <div class="suma">{{carro.cantidad}}</div>
+                            <font-awesome-icon icon="fa-solid fa-user-secret" />
+                        </td>
                         <td>{{carro.precio}}</td>
                         <td><ion-icon name="trash-outline"  @click="eliminar(carro)"></ion-icon></td>
                     </tr>
@@ -39,6 +42,7 @@
 <script >
 
 import {mapState, mapMutations} from 'vuex'
+
 
 export default {
 data(){
@@ -66,3 +70,17 @@ methods: {
 }
 
 </script>
+<style scoped>
+.cantidad {
+    display: flex;
+}
+.controlador{
+    width: 70px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.suma{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+</style>
