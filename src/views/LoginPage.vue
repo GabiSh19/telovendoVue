@@ -23,6 +23,8 @@
 <script>
 import { UserService } from "@/services/UserService";
 import router from "../router";
+
+
 export default {
   name: 'LoginVue',
   data: function() {
@@ -64,7 +66,7 @@ export default {
             this.mensajeError = "Usuario o contraseña inválido" 
         }
     }
-  }
+  },
 };
 </script>
 

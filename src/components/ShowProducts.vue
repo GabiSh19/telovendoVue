@@ -95,33 +95,6 @@ export default {
       this.disponibles = this.productosTodos
 
     },
-
-    // checkStock(stock) {
-    //   if(stock > 0){
-    //     return true;
-    //   }
-    //   else{
-    //     return false;
-    //   }
-    // }
-    // searchData() {
-    //   this.productos.filter(
-    //     prod =>{
-    //       return 
-    //     })
-    
-  //   agregarProducto(producto){
-  //     console.log(producto)
-      
-     
-  //     // const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
-  //     // let fila = productosParaCarrito.map(    => e.id).indexOf(producto);
-  //     // let fila = this.productos.map(e => e.id).indexOf(producto);
-  //     // this.arrayCarrito.push(this.productos[fila]);
-  //     // console.log(this.arrayCarrito);
-
-  //   }
-  //   }
    }}
 
 </script>
