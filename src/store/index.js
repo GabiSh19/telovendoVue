@@ -1,15 +1,42 @@
 import { createStore } from 'vuex'
+import router from "../router";
+
+
 
 export default createStore({
 
     state: {
         carrito: [],
         valores: 0,
-        loggin: false
-
+        loggin: false,
+        isLoggin: true
     },
 
     mutations: {
+
+        validarLogin(state,payload){
+            console.log(payload.usuario)
+            console.log(payload.contrasena)
+            let encontro = payload.usuarios.map(element => element.email).indexOf(payload.usuario)
+            if (encontro !== -1) {
+                if (payload.contrasena == payload.usuarios[encontro].password) {
+                    state.loggin = true;
+                    state.isLoggin = false;
+                    // this.mensajeError = "Ingreso"
+                }else{
+                    state.loggin = false;
+                }
+            }else{
+                state.loggin = false;
+            }
+            if (state.loggin) {
+                router.push('/HomePage')
+            }else{
+                router.push('/');
+                // this.mensajeError = "Usuario o contraseña inválido" 
+            }
+        },
+
         agregar(state, payload){
             const yaExiste = state.carrito.some((element) => { 
                 return payload.id === element.id
