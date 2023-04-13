@@ -19,7 +19,11 @@
                         <td>{{carro.nombre}}</td>
                         <td class="cantidad">
                             <div class="suma">{{carro.cantidad}}</div>
-                            <font-awesome-icon icon="fa-solid fa-user-secret" />
+
+                            <font-awesome-icon :icon="['fas', 'arrow-up']" @click="agregar(carro)" class="me-2" style="color: #19b81c;"/>
+                            <font-awesome-icon :icon="['fas', 'arrow-down']" @click="restar(carro)" style="color: #c93c2c;"/>
+                         
+
                         </td>
                         <td>{{carro.precio}}</td>
                         <td><ion-icon name="trash-outline"  @click="eliminar(carro)"></ion-icon></td>
@@ -45,6 +49,7 @@ import {mapState, mapMutations} from 'vuex'
 
 
 export default {
+    name:'App',
 data(){
     return{
         productos: [],
@@ -62,6 +67,8 @@ computed: {
   },
 
 methods: {
+    ...mapMutations(['agregar']),
+    ...mapMutations(['restar']),
     ...mapMutations(['eliminar']),
     ...mapMutations(['limpiarCarro'])
 }

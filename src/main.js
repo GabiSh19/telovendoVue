@@ -16,7 +16,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
 
 
-
 // Bootstrap CSS , JS
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
