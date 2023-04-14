@@ -9,7 +9,8 @@ export default createStore({
         carrito: [],
         valores: 0,
         loggin: false,
-        isLoggin: true
+        isLoggin: true,
+        mensajeError: ""
     },
 
     mutations: {
@@ -33,7 +34,7 @@ export default createStore({
                 router.push('/HomePage')
             }else{
                 router.push('/');
-                // this.mensajeError = "Usuario o contraseña inválido" 
+                state.mensajeError = "Usuario o contraseña inválido" 
             }
         },
 

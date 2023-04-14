@@ -12,7 +12,7 @@
                 <input v-model="user.password"  class="form-control mt-3" placeholder="Password" type="password">
                 <input class="btn btn-success mt-3" type="submit" value="Ingresar">
             </form>
-            <div v-if="!loggin">{{mensajeError}}</div>
+            <div v-if="!loggin" class="mt-4">{{mensajeError}}</div>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
 <script>
 import { UserService } from "@/services/UserService";
 // // import router from "../router";
-import { mapMutations} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 
 
 export default {
@@ -35,7 +35,6 @@ export default {
             email: '',
             password: ''
         },
-        mensajeError: ""
     };
   },
   created: async function() {
@@ -46,7 +45,11 @@ export default {
       this.errorMessage = error;
     }
   },
-  methods: {
+  computed: {
+    ...mapState(['mensajeError'])
+  },
+
+    methods: {
     ...mapMutations(['validarLogin'])
   },
 };
