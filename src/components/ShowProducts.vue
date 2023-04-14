@@ -94,7 +94,9 @@ export default {
       this.disponibles = this.disponibles.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
     },
     reseteoP(){
+
       this.disponibles = this.productosTodos
+
     },
 
     // checkStock(stock) {
