@@ -51,4 +51,5 @@ export default {
     RouterLink,
   },
 }
+
 </script>
