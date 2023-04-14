@@ -12,13 +12,13 @@
     <div class="row">
       <div class="col-lg-4 col-md-12 mb-4" v-for="producto in disponibles" :key="producto.id">
         <div class="card">
-          <button class = "btn btn-success"  @click="agregar(producto)">Agregar</button>
-          <img :src="producto.imagen" class="w-100" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id"/>
+          <h5 class="card-title mb-3 mt-3">{{producto.nombre}}</h5>
+          <img :src="producto.imagen" class="w-100" />
           <div class="card-body">
-              <h5 class="card-title mb-3">{{producto.nombre}}</h5>
-              <p>{{producto.descripcion}}</p>
-            <h6 class="mb-3">${{producto.precio}}</h6>
+            <h6 class="mb-3"> Precio unitario: ${{producto.precio}}</h6>
           </div>
+          <button class = "btn btn-primary" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id" >Ver descripción </button>
+          <button class = "btn btn-success  mt-2"  @click="agregar(producto)">Agregar</button>
         <!-- Ventana modal -->
           <div class="modal fade" :id="'myModal' + producto.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
