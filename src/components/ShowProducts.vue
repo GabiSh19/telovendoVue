@@ -89,7 +89,7 @@ export default {
     ...mapMutations(['agregar']),
     searchData(){
       this.reseteoP();
-      this.disponibles = this.disponibles.filter((prod) => prod.nombre.toLowerCase().includes(this.buscarP.toLowerCase()))
+      this.disponibles = this.disponibles.filter((prod) => prod.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(this.buscarP.toLowerCase()))
     },
     reseteoP(){
 
