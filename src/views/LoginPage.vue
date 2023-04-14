@@ -7,12 +7,12 @@
             <p class="h3">Ingreso</p>
           </div>
           <div class="card-body bg-light">
-            <form @submit.prevent="validarInformacion()">
+            <form @submit.prevent="validarLogin({usuario: user.email, contrasena: user.password, usuarios: usuarios})">
                 <input v-model="user.email"  class="form-control mt-3" placeholder="Email" type="email">
                 <input v-model="user.password"  class="form-control mt-3" placeholder="Password" type="password">
                 <input class="btn btn-success mt-3" type="submit" value="Ingresar">
             </form>
-            <div v-if="!loggin">{{mensajeError}}</div>
+            <div v-if="!loggin" class="mt-4">{{mensajeError}}</div>
           </div>
         </div>
       </div>
@@ -22,7 +22,8 @@
 
 <script>
 import { UserService } from "@/services/UserService";
-import router from "../router";
+// // import router from "../router";
+import {mapState, mapMutations} from 'vuex'
 
 
 export default {
@@ -34,7 +35,6 @@ export default {
             email: '',
             password: ''
         },
-        mensajeError: ""
     };
   },
   created: async function() {
@@ -45,27 +45,12 @@ export default {
       this.errorMessage = error;
     }
   },
-  methods: {
-    validarInformacion: function() {
-        let loggin = false
-        let encontro = this.usuarios.map(element => element.email).indexOf(this.user.email)
-        if (encontro !== -1) {
-            if (this.user.password === this.usuarios[encontro].password) {
-                loggin = true;
-                this.mensajeError = "Ingreso"
-            }else{
-                loggin = false;
-            }
-        }else{
-            loggin = false;
-        }
-        if (loggin) {
-            router.push('./HomePage')
-        }else{
-            console.log('Usuario NO Logueado')
-            this.mensajeError = "Usuario o contraseña inválido" 
-        }
-    }
+  computed: {
+    ...mapState(['mensajeError'])
+  },
+
+    methods: {
+    ...mapMutations(['validarLogin'])
   },
 };
 </script>
