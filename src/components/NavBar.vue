@@ -10,6 +10,11 @@
           </a>
         </div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="margin-right: 15px;">
+              <button class="btn btn-outline-dark" type="button">
+                <router-link to="/HomeHome" class="nav-link active">Home</router-link>
+              </button>
+            </li>
             <li class="nav-item">
               <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
               <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito</button>
@@ -51,5 +56,6 @@ export default {
     RouterLink,
   },
 }
-
+ 
 </script>
+
