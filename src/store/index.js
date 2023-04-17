@@ -106,9 +106,12 @@ export default createStore({
             localStorage.setItem('cantCarrito', JSON.stringify(state.carrito.length))
         },
 
-        limpiarCarro(state){
+        limpiarCarro(state,payload){
             state.carrito = [];
             state.valores = 0;
+            payload.forEach(element => {
+                element.cantidad = 1;
+            });
             state.cantCarrito = state.carrito.length;
             localStorage.setItem('carrito', JSON.stringify(state.carrito));
             localStorage.setItem('valores', JSON.stringify(state.valores));
