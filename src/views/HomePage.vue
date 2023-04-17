@@ -39,15 +39,18 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<FooterPage/>
 </template>
 
 <script>
 import CarritoCompras from "@/components/CarritoCompras.vue"
+import FooterPage from "@/components/FooterPage.vue"
 
 export default {
   name: 'HomePage',
   components: {
-    CarritoCompras
+    CarritoCompras,
+    FooterPage
     
   }
 }
