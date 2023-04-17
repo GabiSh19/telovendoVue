@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row mt-5 justify-content-center">
-      <div class="col-md-6">
+    <div class="row my-5 justify-content-center">
+      <div class="col-md-6 my-5 ">
         <div class="card shadow-lg">
           <div class="card-header bg-success text-white">
             <p class="h3">Ingreso</p>
@@ -18,16 +18,23 @@
       </div>
     </div>
   </div>
+  <FooterPage/>
+  <CarritoCompras/>
 </template>
 
 <script>
 import { UserService } from "@/services/UserService";
 // // import router from "../router";
 import {mapState, mapMutations} from 'vuex'
-
+import FooterPage from "@/components/FooterPage.vue"
+import CarritoCompras from "@/components/CarritoCompras.vue"
 
 export default {
   name: 'LoginVue',
+  components: {
+    FooterPage,
+    CarritoCompras
+  },
   data: function() {
       return {
         usuarios: [],

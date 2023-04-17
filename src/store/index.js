@@ -110,7 +110,7 @@ export default createStore({
             state.carrito = [];
             state.valores = 0;
             payload.forEach(element => {
-                element.cantidad = 1
+                element.cantidad = 1;
             });
             state.cantCarrito = state.carrito.length;
             localStorage.setItem('carrito', JSON.stringify(state.carrito));
