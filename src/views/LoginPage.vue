@@ -19,6 +19,7 @@
     </div>
   </div>
   <FooterPage/>
+  <CarritoCompras/>
 </template>
 
 <script>
@@ -26,11 +27,13 @@ import { UserService } from "@/services/UserService";
 // // import router from "../router";
 import {mapState, mapMutations} from 'vuex'
 import FooterPage from "@/components/FooterPage.vue"
+import CarritoCompras from "@/components/CarritoCompras.vue"
 
 export default {
   name: 'LoginVue',
   components: {
-    FooterPage
+    FooterPage,
+    CarritoCompras
   },
   data: function() {
       return {
