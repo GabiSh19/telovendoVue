@@ -45,6 +45,14 @@ export default createStore({
                 state.mensajeError = "Usuario o contraseña inválido" 
             }
         },
+
+        cierreSesion(state){
+            state.loggin = false;
+            console.log("cierre sesión")
+
+        },
+
+
         
         agregar(state, payload){
             console.log(state.carrito)
