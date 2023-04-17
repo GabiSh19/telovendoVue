@@ -30,7 +30,7 @@
               <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><ion-icon class="iconCarrito" name="cart-outline"></ion-icon><span v-if="cantCarrito>0" id="cantidadCarrito" >{{ cantCarrito }}</span></button>
             </li>
             <li class="nav-item" style="margin-left: 15px;">
-              <button class="btn btn-dark py-2" type="button" data-bs-toggle="modal" data-bs-target="#loggoutModal">Cerrar sesión</button>
+              <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#loggoutModal" style="padding: 14px;">Cerrar sesión</button>
             </li> 
           </ul>
         </div>
@@ -51,7 +51,7 @@
             <ul class="navbar-nav  d-flex justify-content-end align-items-center mt-3">
             <li class="nav-item" style="margin-right: 15px;">
               <button class="btn btn-outline-dark" type="button">
-                <router-link to="/" class="nav-link active">Home</router-link>
+                <router-link to="/" class="nav-link active" >Home</router-link>
               </button>
             </li>
             <li class="nav-item" style="margin-right: 15px;">
@@ -65,7 +65,7 @@
               <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><ion-icon class="iconCarrito" name="cart-outline"></ion-icon><span v-if="cantCarrito>0" id="cantidadCarrito" >{{ cantCarrito }}</span></button>
             </li>
             <li class="nav-item" style="margin-left: 15px;">
-              <router-link to="/LoginPage" class="nav-link active">Iniciar sesión</router-link>
+              <button class="btn btn-outline-dark" type="button"><router-link to="/LoginPage" class="nav-link active">Iniciar sesión</router-link></button>
             </li> 
           </ul>
         </div>
@@ -123,7 +123,7 @@ export default {
 }
 
 .usuario{
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
   letter-spacing: 2px;
   word-spacing: 5px;
@@ -148,5 +148,7 @@ export default {
   position: absolute;
 }
 
-
+router-link:hover {
+color: white;
+}
 </style>
