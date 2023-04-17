@@ -73,9 +73,7 @@ export default {
       this.productos = response;
       this.productosTodos = response;
       this.disponibles = this.productos.filter((prod) => prod.stock > 0);
-      this.cargando = false;
-      
-  
+      this.cargando = false;  
     } catch (error) {
       this.errorMessage = error;
     }
