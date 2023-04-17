@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row mt-5 justify-content-center">
+    <div class="row my-5 justify-content-center">
       <div class="col-md-6">
         <div class="card shadow-lg">
           <div class="card-header bg-success text-white">
@@ -18,16 +18,20 @@
       </div>
     </div>
   </div>
+  <FooterPage/>
 </template>
 
 <script>
 import { UserService } from "@/services/UserService";
 // // import router from "../router";
 import {mapState, mapMutations} from 'vuex'
-
+import FooterPage from "@/components/FooterPage.vue"
 
 export default {
   name: 'LoginVue',
+  components: {
+    FooterPage
+  },
   data: function() {
       return {
         usuarios: [],
