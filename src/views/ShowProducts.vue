@@ -1,18 +1,21 @@
 <template>
   <CardDetail/>
   <CarritoCompras/>
+  <FooterPage/>
 </template>
 
 <script>
 import CardDetail from "@/components/CardDetail.vue"
 import CarritoCompras from "@/components/CarritoCompras.vue"
+import FooterPage from "@/components/FooterPage.vue"
 
 
 export default {
   name: 'ShowProducts',
   components: {
     CardDetail,
-    CarritoCompras
+    CarritoCompras,
+    FooterPage
   }
 }
 </script>
