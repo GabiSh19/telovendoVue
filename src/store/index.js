@@ -41,7 +41,7 @@ export default createStore({
             if (state.loggin) {
                 router.push('/ShowProducts')
             }else{
-                router.push('/');
+                router.push('/LoginPage');
                 state.mensajeError = "Usuario o contraseña inválido" 
             }
         },
