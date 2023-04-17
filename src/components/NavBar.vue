@@ -1,5 +1,6 @@
-<template> 
-  <nav v-if="loggin" class="navbar navbar-expand-lg bg-success sticky-top">
+<template>
+
+  <nav v-if="($store.state.loggin)" class="navbar navbar-expand-lg bg-success sticky-top">
       <div class="container-fluid">
         <div class="row w-100">
           <div class="col-2">
@@ -37,8 +38,7 @@
       </div>
     </nav>
 
-
-  <nav v-if="!loggin" class="navbar navbar-expand-lg bg-success sticky-top">
+  <nav v-if="(!$store.state.loggin)" class="navbar navbar-expand-lg bg-success sticky-top">
       <div class="container-fluid">
         <div class="row w-100">
           <div class="col-2">
@@ -65,7 +65,7 @@
               <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><ion-icon class="iconCarrito" name="cart-outline"></ion-icon><span v-if="cantCarrito>0" id="cantidadCarrito" >{{ cantCarrito }}</span></button>
             </li>
             <li class="nav-item" style="margin-left: 15px;">
-              <button class="btn btn-dark py-2" type="button" data-bs-toggle="modal" data-bs-target="#loggoutModal">Iniciar sesión</button>
+              <router-link to="/LoginPage" class="nav-link active">Iniciar sesión</router-link>
             </li> 
           </ul>
         </div>
@@ -86,7 +86,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                    <router-link to="/" class="nav-link active">Logout</router-link>
+                    <router-link to="/" class="nav-link active" @click="cierreSesion">Logout</router-link>
                   </button>
                 </div>
               </div>
@@ -97,7 +97,7 @@
 
 <script>
 import { RouterLink } from 'vue-router'
-import {mapState} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 
 export default {
   components: {
@@ -106,8 +106,11 @@ export default {
   computed: {
     ...mapState(['cantCarrito']),
     ...mapState(['usuario']),
-    ...mapState(['loggin'])
-  }
+    ...mapState(['loggin']),
+  },
+  methods: {
+    ...mapMutations(['cierreSesion'])
+  },
 }
 
 
