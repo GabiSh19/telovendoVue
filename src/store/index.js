@@ -6,11 +6,19 @@ import router from "../router";
 export default createStore({
 
     state: {
-        carrito: [],
-        valores: 0,
+        // carrito: [] || localStorage.get('carrito', JSON.stringify([])),
+        // carrito: [] || localStorage.setItem('carrito', JSON.stringify([])),
+        carrito: JSON.parse(localStorage.getItem('carrito')) ? JSON.parse(localStorage.getItem('carrito')) : [],
+        valores: JSON.parse(localStorage.getItem('valores')) ? JSON.parse(localStorage.getItem('valores')) : 0,
+        cantCarrito: JSON.parse(localStorage.getItem('cantCarrito')) ? JSON.parse(localStorage.getItem('cantCarrito'))   : 0,
         loggin: false,
         isLoggin: true,
-        mensajeError: ""
+        mensajeError: "",
+        usuario: ""
+    },
+
+    computed: {
+
     },
 
     mutations: {
@@ -23,7 +31,7 @@ export default createStore({
                 if (payload.contrasena == payload.usuarios[encontro].password) {
                     state.loggin = true;
                     state.isLoggin = false;
-                    // this.mensajeError = "Ingreso"
+                    state.usuario = payload.usuarios[encontro].name
                 }else{
                     state.loggin = false;
                 }
@@ -31,14 +39,15 @@ export default createStore({
                 state.loggin = false;
             }
             if (state.loggin) {
-                router.push('/HomePage')
+                router.push('/ShowProducts')
             }else{
                 router.push('/');
                 state.mensajeError = "Usuario o contraseña inválido" 
             }
         },
-
+        
         agregar(state, payload){
+            console.log(state.carrito)
             const yaExiste = state.carrito.some((element) => { 
                 return payload.id === element.id
             })
@@ -48,8 +57,14 @@ export default createStore({
                 state.valores = state.valores+(payload.precio) 
             }else{
                 state.carrito.push(payload) 
+                // state.carrito = JSON.parse(localStorage.getItem('carrito')),
                 state.valores = state.valores+(payload.precio) 
-            } 
+            }
+            state.cantCarrito = state.carrito.length; 
+            localStorage.setItem('carrito', JSON.stringify(state.carrito))
+            localStorage.setItem('valores', JSON.stringify(state.valores))
+            localStorage.setItem('cantCarrito', JSON.stringify(state.carrito.length))
+
         },
         restar(state, payload){
 
@@ -64,6 +79,10 @@ export default createStore({
                 payload.cantidad = payload.cantidad - 1
                 state.valores = state.valores - (payload.precio)
             }
+            state.cantCarrito = state.carrito.length;
+            localStorage.setItem('carrito', JSON.stringify(state.carrito))
+            localStorage.setItem('valores', JSON.stringify(state.valores))
+            localStorage.setItem('cantCarrito', JSON.stringify(state.carrito.length))
         },
 
         eliminar(state, payload){
@@ -72,12 +91,22 @@ export default createStore({
             })
             state.valores = state.valores - (payload.precio * payload.cantidad)
             payload.cantidad = 1
+
+            state.cantCarrito = state.carrito.length;
+            localStorage.setItem('carrito', JSON.stringify(state.carrito))
+            localStorage.setItem('valores', JSON.stringify(state.valores))
+            localStorage.setItem('cantCarrito', JSON.stringify(state.carrito.length))
         },
 
         limpiarCarro(state){
             state.carrito = [];
-            state.valores = 0
+            state.valores = 0;
+            state.cantCarrito = state.carrito.length;
+            localStorage.setItem('carrito', JSON.stringify(state.carrito));
+            localStorage.setItem('valores', JSON.stringify(state.valores));
+            localStorage.setItem('cantCarrito', JSON.stringify(state.carrito.length))
         },
+
     },
     
     action: {

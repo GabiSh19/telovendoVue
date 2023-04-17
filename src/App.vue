@@ -1,23 +1,24 @@
 
 
 <template>
-  <div v-if=($store.state.isLoggin)>
+  <NavBar />  
+  <router-view />
+  <!-- <div v-if=($store.state.isLoggin)>
     <LoginPage/>
   </div>
   <div v-if= ($store.state.loggin)>
     <router-view />
 
-  </div>
+  </div> -->
 
 </template>
 
 <script>
-import LoginPage from "@/views/LoginPage.vue"
-
+import NavBar from "@/components/NavBar";
 export default {
   name: 'App',
   components: {
-    LoginPage
+    NavBar
   }
 }
 </script>
