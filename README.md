@@ -1,24 +1,11 @@
-# carrito4
+# Sprint - Bootcamp UNAB
+Trabajo grupal de la tienda Te lo Vendo.
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Github Pages
+Link para visitar: https://gabish19.github.io/telovendoVue/
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Equipo de Trabajo ✨
+<a href="https://github.com/gabish19/telovendoVue/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gabish19/telovendoVue" />
+</a>
