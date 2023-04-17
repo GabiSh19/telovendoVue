@@ -44,16 +44,33 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"> Ya te vas?</h5>
+                  <h5 class="modal-title" id="exampleModalLabel"> Resumen de tu compra</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Seguro quieres cerrar sesion?
+                    <table class="table table-bordered">
+                        <thead class=" table-success">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Valor Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="carro in carrito" :key="carro.cantidad">
+                                <td>{{carro.nombre}}</td>
+                                <td class="cantidad">
+                                    <div class="suma">{{carro.cantidad}}</div>
+
+                                </td>
+                                <td>{{carro.precio}}</td>
+                            </tr>
+                        </tbody>
+                        </table>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                    <router-link to="/" class="nav-link active" @click="cierreSesion">Logout</router-link>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    <router-link to="/" class="nav-link active" @click="cierreSesion">Aceptar</router-link>
                   </button>
                 </div>
               </div>
