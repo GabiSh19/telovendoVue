@@ -1,7 +1,7 @@
 <template>
     <footer class="text-center text-white" style="background-color: black;">
         <!-- Grid container -->
-        <div class="container pt-4">
+        <div class="container py-4">
           <div>
             <ul class="d-flex justify-content-around" >
               <li>Gabriela Soto</li>
