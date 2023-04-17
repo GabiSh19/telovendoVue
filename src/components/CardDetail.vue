@@ -17,7 +17,7 @@
           <div class="card-body">
             <h6 class="mb-3"> Precio unitario: ${{producto.precio}}</h6>
           </div>
-          <button class = "btn btn-primary" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id" >Ver descripción </button>
+          <button class = "btn btn-outline-success" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id" >Ver descripción </button>
           <button class = "btn btn-success  mt-2"  @click="agregar(producto)">Agregar</button>
         <!-- Ventana modal -->
           <div class="modal fade" :id="'myModal' + producto.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
