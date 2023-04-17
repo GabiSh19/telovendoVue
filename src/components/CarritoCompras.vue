@@ -34,7 +34,7 @@
                     <p>Total: {{valores}}</p>
                 </div>
                 <div class="d-grid gap-2 col-10 mx-auto">
-                    <button class="btn btn-outline-success" type="button" @click="limpiarCarro()">Limpiar mi Carrito</button>
+                    <button class="btn btn-outline-success" type="button" @click="limpiarCarro(carrito)">Limpiar mi Carrito</button>
                     <button class="btn btn-success" type="button">Finalizar mi compra</button>
                 </div>
       </div>
