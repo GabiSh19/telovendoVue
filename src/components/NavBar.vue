@@ -103,9 +103,7 @@
     <div v-if="($store.state.loggin)" class="col-3 mt-4 usuario">
             Bienvenido/a {{ usuario }}
     </div>
-    <button v-if="isMobile" type="navbar-toggler visually-hidden" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" v-bind:class="{ 'collapsed': menuCollapsed }" v-on:click="toggleMenu">
-      <span class="navbar-toggler-icon d-lg-none"></span>
-    </button>
+    <button class="btn" v-if="isMobile" type="navbar-toggler" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" v-bind:class="{ 'collapsed': menuCollapsed }" v-on:click="toggleMenu"><img src="../assets/burgerb.svg" alt="" class="navbar-toggler-icon d-lg-none"></button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" v-bind:class="{ 'show': !menuCollapsed }">
       <div class="navbar-nav d-flex justify-content-end align-items-center mt-3">
         <a class="nav-link " href="#" v-if="($store.state.loggin)"><button class="btn btn-dark py-2" type="button" data-bs-toggle="modal" data-bs-target="#loggoutModal">Cerrar sesión</button></a>
@@ -207,7 +205,7 @@ export default {
   padding: 3px;
   height: 2em;
   top: 15px;
-  position: absolute;
+/*   position: absolute; */
 }
 
 router-link:hover {
