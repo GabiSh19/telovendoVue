@@ -10,7 +10,7 @@
                 <tr>
                     <th scope="col">Producto</th>
                     <th scope="col">Cantidad</th>
-                    <th scope="col">Valor Total</th>
+                    <th scope="col">Precio Unitario</th>
                     <th scope="col">Modificar</th>
                 </tr>
                 </thead>
