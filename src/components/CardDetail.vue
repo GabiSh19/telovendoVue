@@ -15,8 +15,8 @@
           <h5 class="card-title mb-3 mt-3">{{producto.nombre}}</h5>
           <img :src="producto.imagen" class="w-100" />
           <div class="card-body">
-            <h6 class="mb-3"> Precio unitario: ${{producto.precio}}</h6>
-          </div>
+            <h6 class="mb-3"> Precio unitario: $ {{new Intl.NumberFormat('ES', {style: 'currency', currency: 'clp' }).format(producto.precio)}}</h6>
+          </div>  
           <button class = "btn btn-outline-success" data-bs-toggle="modal" :data-bs-target="'#myModal' + producto.id" >Ver descripción </button>
           <button class = "btn btn-success  mt-2"  @click="agregar(producto)">Agregar</button>
         <!-- Ventana modal -->
