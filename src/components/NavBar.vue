@@ -205,6 +205,7 @@ export default {
   padding: 3px;
   height: 2em;
   top: 15px;
+  padding: .4em;
 /*   position: absolute; */
 }
 
