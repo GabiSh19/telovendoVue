@@ -7,7 +7,7 @@
       <div class="offcanvas-body">
         <table class="table table-bordered">
                 <thead class=" table-success">
-                <tr>
+                <tr class="align-items-center">
                     <th scope="col">Producto</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Precio Unitario</th>
@@ -25,13 +25,13 @@
                          
 
                         </td>
-                        <td>{{carro.precio}}</td>
+                        <td>${{new Intl.NumberFormat('ES', {style: 'currency', currency: 'clp' }).format(carro.precio)}}</td>
                         <td><ion-icon name="trash-outline"  @click="eliminar(carro)"></ion-icon></td>
                     </tr>
                 </tbody>
                 </table>
                 <div class="summary">
-                    <p>Total: {{valores}}</p>
+                    <p>Total: $ {{new Intl.NumberFormat('ES', {style: 'currency', currency: 'clp' }).format(valores)}}</p>
                 </div>
                 <div class="d-grid gap-2 col-10 mx-auto">
                     <button class="btn btn-outline-success" type="button" @click="limpiarCarro(carrito)">Limpiar mi Carrito</button>
@@ -53,7 +53,7 @@
                         <tr>
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
-                            <th scope="col">Valor Total</th>
+                            <th scope="col">Precio Unitario</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,8 +63,12 @@
                                     <div class="suma">{{carro.cantidad}}</div>
 
                                 </td>
-                                <td>{{carro.precio}}</td>
+                                
+                                <td>$ {{new Intl.NumberFormat('ES', {style: 'currency', currency: 'clp' }).format(carro.precio)}}</td>
                             </tr>
+                            <div class="summary m-3">
+                                <p>Total compra: $ {{new Intl.NumberFormat('ES', {style: 'currency', currency: 'clp' }).format(valores)}}</p>
+                            </div>
                         </tbody>
                         </table>
                 </div>
