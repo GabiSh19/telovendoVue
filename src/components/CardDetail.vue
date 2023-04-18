@@ -135,4 +135,8 @@ margin-bottom: 2em;
 
 }
 
+img{
+  height: 400px;
+}
+
 </style>
